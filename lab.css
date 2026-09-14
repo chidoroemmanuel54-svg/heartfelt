@@ -1,0 +1,160 @@
+:root {
+      --pink-light: #fff1f6;
+      --pink-soft: #ffd6e5;
+      --rose: #f7a9c4;
+      --berry: #b84a6d;
+      --cream: #fffaf5;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      color: #6b2f45;
+      font-family: Georgia, "Times New Roman", serif;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.95) 0 12%, transparent 30%),
+        radial-gradient(circle at 82% 22%, rgba(255, 214, 229, 0.78) 0 16%, transparent 34%),
+        radial-gradient(circle at 50% 88%, rgba(247, 169, 196, 0.45) 0 22%, transparent 48%),
+        linear-gradient(135deg, var(--cream), var(--pink-light) 42%, var(--pink-soft));
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: -10%;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle, rgba(184, 74, 109, 0.16) 0 3px, transparent 4px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.7) 0 2px, transparent 3px);
+      background-size: 86px 86px, 132px 132px;
+      background-position: 0 0, 38px 54px;
+      opacity: 0.55;
+    }
+
+    body::after {
+      inset: auto;
+      width: 34vmin;
+      height: 34vmin;
+      right: 9vw;
+      bottom: 8vh;
+      opacity: 0.28;
+      background: var(--rose);
+      transform: rotate(-45deg);
+      border-radius: 0 0 7vmin 0;
+      box-shadow:
+        -42vw -50vh 0 -7vmin rgba(255, 255, 255, 0.44),
+        -58vw -7vh 0 -11vmin rgba(247, 169, 196, 0.36),
+        -18vw -28vh 0 -12vmin rgba(184, 74, 109, 0.22);
+    }
+
+    .heart-bg {
+      width: min(88vw, 760px);
+      padding: 64px 28px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(3rem, 11vw, 7rem);
+      font-weight: 400;
+      line-height: 0.95;
+      color: var(--berry);
+      text-shadow: 0 12px 38px rgba(184, 74, 109, 0.18);
+    }
+
+    p {
+      max-width: 560px;
+      margin: 24px auto 0;
+      font-size: clamp(1.1rem, 3vw, 1.45rem);
+      line-height: 1.6;
+      color: #7a4055;
+    }
+
+    .begin-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 148px;
+      min-height: 52px;
+      margin-top: 34px;
+      padding: 14px 30px;
+      border: 1px solid rgba(184, 74, 109, 0.18);
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--rose), var(--berry));
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-decoration: none;
+      transition: transform 180ms ease, background 180ms ease;
+    }
+
+    .begin-button:focus-visible {
+      outline: 3px solid rgba(184, 74, 109, 0.28);
+      outline-offset: 4px;
+    }
+
+    .choice-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 38px;
+    }
+
+    .answer-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 128px;
+      min-height: 52px;
+      padding: 14px 28px;
+      border: 1px solid rgba(184, 74, 109, 0.2);
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0;
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .yes-button {
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--rose), var(--berry));
+      box-shadow: 0 14px 28px rgba(184, 74, 109, 0.22);
+    }
+
+    .no-button {
+      flex-direction: column;
+      transform-origin: center;
+      color: var(--berry);
+      background: rgba(255, 255, 255, 0.62);
+      box-shadow: 0 12px 24px rgba(184, 74, 109, 0.12);
+    }
+
+    .main-answer,
+    .small-answer {
+      display: block;
+      line-height: 1.1;
+    }
+
+    .small-answer {
+      margin-top: 4px;
+      font-size: 0.72em;
+      font-weight: 600;
+    }
+
+    .answer-button:focus-visible {
+      outline: 3px solid rgba(184, 74, 109, 0.28);
+      outline-offset: 4px;
+    }

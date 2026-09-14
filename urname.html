@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>HeartFelt</title>
+	<link rel="stylesheet" href="lab.css">
+</head>
+<body>
+	<main class="heart-bg" aria-labelledby="welcome-heading">
+		<h1 id="welcome-heading">Hello</h1>
+		<p id="welcome-message">Someone special made this for you.</p>
+		<a class="begin-button" href="SayYes.html">Continue</a>
+	</main>
+
+	<script>
+		const params = new URLSearchParams(window.location.search);
+		const name = params.get('name');
+
+		if (name) {
+			document.getElementById('welcome-heading').textContent = `Hello, ${name}`;
+		}
+	</script>
+</body>
+</html>

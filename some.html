@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Email</title>
+  <link rel="stylesheet" href="lab.css">
+  <style>
+    .rad {
+      max-width: 430px;
+      margin: 34px auto 0;
+      text-align: left;
+    }
+
+    .rad label {
+      display: block;
+      margin-bottom: 9px;
+      font-family: Arial, sans-serif;
+      font-weight: 700;
+    }
+
+    .rad input {
+      width: 100%;
+      min-height: 52px;
+      padding: 12px 14px;
+      border: 1px solid rgba(184, 74, 109, 0.28);
+      border-radius: 4px;
+      color: #6b2f45;
+      font: 1rem Arial, sans-serif;
+    }
+
+    .rad input:focus {
+      outline: 3px solid rgba(184, 74, 109, 0.2);
+      outline-offset: 2px;
+    }
+
+    .rad button {
+      width: 100%;
+      margin-top: 18px;
+    }
+  </style>
+</head>
+<body>
+  <main class="heart-bg" aria-labelledby="email-heading">
+    <h1 id="email-heading">Stay in touch</h1>
+    <p>Enter your email address below.</p>
+
+    <form class="rad" id="email-form" action="/store-email" method="POST">
+      <label for="email">Email address</label>
+      <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+      <button class="begin-button" type="submit">Continue</button>
+    </form>
+  </main>
+
+  <p id="response"></p>
+
+  <script>
+    const form = document.getElementById('email-form');
+    const responseText = document.getElementById('response');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+
+      try {
+        const res = await fetch('http://localhost:3000/store-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
+        });
+
+        const data = await res.json();
+        responseText.textContent = data.message;
+        sessionStorage.setItem('email', email);
+        window.location.href = 'link.html';
+      } catch (err) {
+        responseText.textContent = 'Error sending email';
+      }
+    });
+  </script>
+  
+</body>
+</html>
